@@ -1,0 +1,21 @@
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 1200px;
+  float: right;
+}
+
+th {
+  background-image: -webkit-linear-gradient(top, #AD3A4B 0%, #7E2836 100%);
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: #B6012E;
+  font-size: 12px;
+  color: #FFFFFF;
+  height: 70px;
+
+}
+
+
+table tr:nth-child(even) td{
+    background-color: #F4F4F4;
+}
