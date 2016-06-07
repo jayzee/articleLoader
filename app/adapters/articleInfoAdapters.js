@@ -17,6 +17,20 @@ app.articleInfo.adapter = {
         console.log( "error" );
       });
 
+  },
+
+  getMore: function(startingNumber){
+    //if app.adapter.articleInfo.
+    var arrayToPrint = [];
+    var articles = app.articleInfo.all;
+    for(i = 1; i <= 10; i++  ) {
+          arrayToPrint.push(articles[startingNumber + i ])
+          }
+    
+    return arrayToPrint;
+
+
+
   }
 
 }

@@ -65,7 +65,7 @@ table tr:nth-child(even) td{
     background-color: #F4F4F4;
 }
 
-.button {
+.load-button {
     background-color: #1F567C;
     border: none;
     color: white;

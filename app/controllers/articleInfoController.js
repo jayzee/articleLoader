@@ -1,6 +1,5 @@
 app.articleInfo.controller = {
   render: function(data){
-      console.log("render")
 
       var articles = app.articleInfo.all;
 
@@ -23,6 +22,24 @@ app.articleInfo.controller = {
               <td class="time-box">` + diffInMinutes + ` hours ago` + `</td></tr>`
           );
       }
+
+  },
+
+  renderMore: function(dataToPrint) {
+    for (j = 0; j < 10; j++){
+      
+      $('#first-row').append(
+          `<tr><td class="image-box"><img src="` + dataToPrint[j].image + `" width="50" height="50"></td>
+          <td class="title-box"><a href="` + dataToPrint[j].url + `">` + dataToPrint[j].title + `</a></td>
+          <td class="name-box">` + dataToPrint[j].profileFirstName + ` `
+          + dataToPrint[j].profileLastName + `</td>
+          <td class="words-box">` + dataToPrint[j].words + `</td>
+          <td class="time-box"> 6 hours ago` + `</td></tr>`
+      );
+
+
+    }
+
 
   }
 

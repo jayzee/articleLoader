@@ -2,7 +2,6 @@ app.articleInfo ={
   all: [],
   new: (function(){
       var counter = 0;
-      var numberDisplayed = 0
       var articleInfo = function ArticleInfo(id, image,profileFirstName, profileLastName, publishDate, words, title, url) {
         this.id = id;
         this.image = image;
