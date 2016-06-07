@@ -8,8 +8,8 @@ app.articleInfo.adapter = {
         // console.log(data );
         articles.forEach(function(article){
 
-        var articleInfo = new app.articleInfo.new(article.id, article.image, article.profile.first_name, article.profile.last_name, article.publish_at, article.words, article.title);
-        
+        var articleInfo = new app.articleInfo.new(article.id, article.image, article.profile.first_name, article.profile.last_name, article.publish_at, article.words, article.title, article.url);
+
         })
 
       })
