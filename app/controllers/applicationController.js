@@ -13,6 +13,8 @@ $(document).ready(function(){
         }
   });
 
+  $('#left-header').append( ` (` +  (numberDisplayed + 1) + `)`);
+
 
    $('.load-button').on('click', function(e){
      e.preventDefault();
@@ -22,8 +24,7 @@ $(document).ready(function(){
           app.articleInfo.controller.renderMore(arrayToPrint);
           numberDisplayed = numberDisplayed + 10;
 
-          var taste = localStorage.getItem('sortingType');
-          console.log(taste)
+          $('#left-header').text( `UNPUBLISHED ARTICLES (` +  (numberDisplayed + 1) + `)`);
       }
       else if (numberDisplayed < 59)
       {
@@ -31,13 +32,15 @@ $(document).ready(function(){
         var arrayToPrint = app.articleInfo.adapter.getMore(numberDisplayed);
         app.articleInfo.controller.renderMore(arrayToPrint);
                 numberDisplayed = numberDisplayed + 10;
-        });
-      }
-      else {
-        // change button
+      $('#left-header').text( `UNPUBLISHED ARTICLES (` +  (numberDisplayed + 1) + `)`);
+
+      if (numberDisplayed === 59){
         $('.load-button').text('No more articles to load').css("background-color",'#AD3A4B');
       }
-   });
+        });
+
+      } // end of else if
+   }); // end of .load-button
 
             $('#words-box').on('click', function(e){
                 e.preventDefault();

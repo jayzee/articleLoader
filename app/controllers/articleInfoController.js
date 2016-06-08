@@ -6,10 +6,18 @@ app.articleInfo.controller = {
       for (i = 0; i < 10; i++) {
 
         var publishedTime = articles[i].publishedTime;
+        var tagString = "";
+
+        articles[i].tags.forEach(function(tag){
+            tagString = tagString + tag.name + `, `;
+        });
+
+        tagString = tagString.substring( 0, tagString.length - 2);
 
           $('#first-row').append(
               `<tr><td class="image-box"><img src="` + articles[i].image + `" width="50" height="50"></td>
-              <td class="title-box"><a href="` + articles[i].url + `">` + articles[i].title + `</a></td>
+              <td class="title-box"><a href="` + articles[i].url + `">` + articles[i].title + `</a>
+              <div class="tags">` + tagString + `</div></td>
               <td class="name-box">` + articles[i].profileFirstName + ` `
               + articles[i].profileLastName + `</td>
               <td class="words-box">` + articles[i].words + `</td>
@@ -94,6 +102,8 @@ app.articleInfo.controller = {
 
    var days = Math.floor(milisec_diff / 1000 / 60 / (60 * 24));
    var date_diff = new Date( milisec_diff );
+
+   var hours = Math.floor(milisec_diff / 1000 / 60 / 60);
 
    if(days > 365){
      var years = Math.floor(days/365);
