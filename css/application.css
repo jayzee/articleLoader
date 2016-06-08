@@ -38,6 +38,8 @@ td {
   border-top-color: #7C2534;
   border-top-width: 1px;
   border-top-style: solid;
+
+
 }
 
 #words-box {
@@ -58,13 +60,14 @@ td {
   border-top-style: solid;
 }
 
-#submitted-header{
+#submitted-box{
   border-top-color: #7C2534;
   border-top-width: 1px;
   border-top-style: solid;
   border-right-color: #7C2534;
   border-right-width: 1px;
   border-right-style: solid;
+  padding-left: 25px;
 }
 
 .image-box {
@@ -78,6 +81,9 @@ td {
   color: #1F567C;
   font-weight: bold;
   border-left-style: none;
+  vertical-align: text-top;
+  padding-top: 20px;
+
 
 }
 

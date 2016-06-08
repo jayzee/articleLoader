@@ -60,6 +60,7 @@ app.articleInfo.controller = {
                 sortedObj = _.sortBy(articlesToSort, 'publishedTime').reverse();
                     }
 
+          //app.articleInfo.controller.renderMore(sortedObj);
         for (l = 0; l < articlesToSort.length; l++){
           var publishedTime = sortedObj[l].publishedTime;
 
