@@ -18,7 +18,6 @@ $(document).ready(function(){
 
    $('.load-button').on('click', function(e){
      e.preventDefault();
-      console.log('clicked load more');
       if (numberDisplayed < 29) {
           var arrayToPrint = app.articleInfo.adapter.getMore(numberDisplayed);
           app.articleInfo.controller.renderMore(arrayToPrint);

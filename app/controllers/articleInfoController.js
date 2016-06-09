@@ -30,10 +30,19 @@ app.articleInfo.controller = {
   renderMore: function(dataToPrint) {
     for (j = 0; j < 10; j++){
       var publishedTime = dataToPrint[j].publishedTime;
+      var tagString = "";
+
+      dataToPrint[j].tags.forEach(function(tag){
+          tagString = tagString + tag.name + `, `;
+      });
+
+      tagString = tagString.substring( 0, tagString.length - 2);
+
 
       $('#first-row').append(
           `<tr><td class="image-box"><img src="` + dataToPrint[j].image + `" width="50" height="50"></td>
-          <td class="title-box"><a href="` + dataToPrint[j].url + `">` + dataToPrint[j].title + `</a></td>
+          <td class="title-box"><a href="` + dataToPrint[j].url + `">` + dataToPrint[j].title + `</a>
+          <div class="tags">` + tagString + `</div></td>
           <td class="name-box">` + dataToPrint[j].profileFirstName + ` `
           + dataToPrint[j].profileLastName + `</td>
           <td class="words-box">` + dataToPrint[j].words + `</td>
@@ -68,13 +77,21 @@ app.articleInfo.controller = {
                 sortedObj = _.sortBy(articlesToSort, 'publishedTime').reverse();
                     }
 
-          //app.articleInfo.controller.renderMore(sortedObj);
+
         for (l = 0; l < articlesToSort.length; l++){
           var publishedTime = sortedObj[l].publishedTime;
+          var tagString = "";
+
+          sortedObj[l].tags.forEach(function(tag){
+              tagString = tagString + tag.name + `, `;
+          });
+
+          tagString = tagString.substring( 0, tagString.length - 2);
 
           $('#first-row').append(
               `<tr><td class="image-box"><img src="` + sortedObj[l].image + `" width="50" height="50"></td>
-              <td class="title-box"><a href="` + sortedObj[l].url + `">` + sortedObj[l].title + `</a></td>
+              <td class="title-box"><a href="` + sortedObj[l].url + `">` + sortedObj[l].title + `</a>
+              <div class="tags">` + tagString + `</div></td>
               <td class="name-box">` + sortedObj[l].profileFirstName + ` `
               + sortedObj[l].profileLastName + `</td>
               <td class="words-box">` + sortedObj[l].words + `</td>
@@ -108,9 +125,11 @@ app.articleInfo.controller = {
    if(days > 365){
      var years = Math.floor(days/365);
      return years + " years ago"}
-   else if(days > 1 ) { return days + " days ago"}
+   else if(days >= 1 ) { return days + " days ago"}
    else if (hours >= 1) {return date_diff.getHours() + " hours ago"}
-   else { return date_diff.getMinutes() + " minutes ago"}
+   else {
+     return date_diff.getMinutes() + " minutes ago"}
  }
+
 
 }
